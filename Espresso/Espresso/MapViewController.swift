@@ -8,15 +8,27 @@
 
 import UIKit
 import MapKit
+import RxSwift
+import RxCocoa
+
 class MapViewController: UIViewController
 {
-
     @IBOutlet weak var mapView: MKMapView!
+
     let locationManager = CLLocationManager()
+    var nearbyViewModel:NearbyViewModel!
+    var disposeBag = DisposeBag()
+    var coffeeShops:[CoffeeShop] = [CoffeeShop]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        setupRx()
+        setupLocation()
+    }
+    
+    func setupLocation()
+    {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
@@ -25,7 +37,19 @@ class MapViewController: UIViewController
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             locationManager.requestLocation()
         }
-        
+
+    }
+    
+    func setupRx()
+    {
+        nearbyViewModel = NearbyViewModel()
+        nearbyViewModel.fetchCoffeeShops().driveNext
+                { shops in
+                    for shop in shops
+                    {
+                        print(shop.distance)
+                    }
+                }.addDisposableTo(disposeBag)
     }
 }
 
@@ -33,7 +57,10 @@ extension MapViewController:CLLocationManagerDelegate
 {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
-       
+        if let latestLocation = locations.last
+        {
+            nearbyViewModel.locationVariable.value = latestLocation
+        }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
