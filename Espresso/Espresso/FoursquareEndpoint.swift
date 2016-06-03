@@ -10,12 +10,14 @@ import SwiftyJSON
 import Foundation
 import ObjectMapper
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 class FoursquareEndpoint
 {
     static let sharedInstance = FoursquareEndpoint()
-    var client_key:String?
-    var client_secret:String?
+    private var client_key:String?
+    private var client_secret:String?
     
     private init()
     {
@@ -36,38 +38,54 @@ class FoursquareEndpoint
     }
     
     //This method calls the Foursquare API with location coordinates and retrieves the nearby coffeeShops
-    func getNearyByCoffeeShops(location:CLLocation, completionHandler:(coffeeShopsNearby:[CoffeeShop])->Void) -> Request
+    func getNearyByCoffeeShops(location:CLLocation) -> Observable<[CoffeeShop]>
     {
         let baseURL:String = "https://api.foursquare.com/v2/venues/search?"
         let params:[String : AnyObject] = buildSearchParameters(location)
-        
-        //GET request to Foursquare search API
-        return Alamofire.request(.GET, baseURL, parameters: params, encoding: ParameterEncoding.URL, headers: nil)
-            .validate()
-            .responseJSON()
-                {
-                    response in
-                    
-                    //validating the response
-                    guard response.result.isSuccess else
+        return Observable<[CoffeeShop]>.create
+        {
+            observer in
+            //GET request to Foursquare search API
+            let request =
+                
+                Alamofire.request(.GET, baseURL, parameters: params, encoding: ParameterEncoding.URL, headers: nil)
+                .validate()
+                .responseJSON()
                     {
-                        print(response.result.error)
-                        return
+                        response in
+                        
+                        //validating the response
+                        guard response.result.isSuccess else
+                        {
+                            if let responseError = response.result.error
+                            {
+                                observer.onError(responseError)
+                            }
+                            return
+                        }
+                        
+                        //validating json format
+                        guard let responseJSONValue = response.result.value as? [String: AnyObject] else
+                        {
+                            if let valueError = response.result.error
+                            {
+                                observer.onError(valueError)
+                            }
+                            return
+                        }
+                   
+                        //mapping json to CoffeeShop objects using ObjectMapper
+                        if let coffeeShops = Mapper<CoffeeShop>().mapArray(responseJSONValue["response"]!["venues"])
+                        {
+                            observer.onNext(coffeeShops)
+                            observer.onCompleted()
+                        }
                     }
-                    
-                    //validating json format
-                    guard let responseJSONValue = response.result.value as? [String: AnyObject] else
+                return AnonymousDisposable
                     {
-                        print("json failed: " + response.result.error.debugDescription)
-                        return
+                        request.cancel()
                     }
-               
-                    //mapping json to CoffeeShop objects using ObjectMapper
-                    if let coffeeShops = Mapper<CoffeeShop>().mapArray(responseJSONValue["response"]!["venues"])
-                    {
-                        completionHandler(coffeeShopsNearby: coffeeShops)
-                    }
-                }
+            }
     }
     
     private func buildSearchParameters(location:CLLocation) -> [String : AnyObject]
@@ -89,7 +107,7 @@ class FoursquareEndpoint
                 "client_id" : client_key!,
                 "client_secret" : client_secret!,
                 "v" : YYYYMMDD
-        ]
+            ]
         
         return params
     }
