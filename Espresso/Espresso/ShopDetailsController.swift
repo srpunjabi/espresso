@@ -9,8 +9,8 @@
 import UIKit
 import MapKit
 
-class ShopDetailsController: UITableViewController {
-    
+class ShopDetailsController: UITableViewController
+{    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!

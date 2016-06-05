@@ -32,5 +32,4 @@ class CoffeeShopAnnotation: NSObject, MKAnnotation
         self.annotationType = type
         super.init()
     }
-
 }

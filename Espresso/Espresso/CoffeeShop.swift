@@ -23,10 +23,7 @@ class CoffeeShop:Mappable
     var phoneBasic:String?
     var url:String?
     
-    required init?(_ map: Map)
-    {
-    
-    }
+    required init?(_ map: Map){}
     
     func mapping(map: Map)
     {
