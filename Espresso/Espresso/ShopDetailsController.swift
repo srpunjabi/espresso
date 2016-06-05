@@ -11,23 +11,21 @@ import MapKit
 
 class ShopDetailsController: UITableViewController {
     
-    //MARK: - Outlets, Variables, Constants
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var webSiteLabel: UILabel!
-    
+    @IBOutlet weak var distanceLabel: UILabel!
     
     var coffeeShop:CoffeeShop?
-    
     let addressSection = 0
     let addressRow = 0
     let infoSection = 1
-    let directionCellRow = 0
-    let phoneCellRow = 1
-    let webCellRow = 2
+    let directionCellRow = 1
+    let phoneCellRow = 2
+    let webCellRow = 3
     
     override func viewDidLoad()
     {
@@ -46,6 +44,7 @@ class ShopDetailsController: UITableViewController {
             setupAddressLabel(coffeeShop)
             setUpPhoneLabel(coffeeShop)
             setUpWebsiteLabel(coffeeShop)
+            setUpDistance(coffeeShop)
             showPin(coffeeShop)
         }
     }
@@ -67,6 +66,18 @@ class ShopDetailsController: UITableViewController {
             return
         }
         webSiteLabel.text = url
+    }
+    
+    func setUpDistance(shop:CoffeeShop)
+    {
+        guard let distance = shop.distance else
+        {
+            distanceLabel.text = "0.0"
+            return
+        }
+        var distanceInMiles = distance * 0.000621371192
+        distanceInMiles = Double(round(distanceInMiles * 100)/100)
+        distanceLabel.text = "\(distanceInMiles) mi"
     }
     
     func setUpPhoneLabel(shop:CoffeeShop)
@@ -98,23 +109,20 @@ class ShopDetailsController: UITableViewController {
         }
     }
 
-    //MARK: -  Helpers
+    //MARK: -  URL Helpers
+    
     func openWebURL()
     {
-        if let sUrl = coffeeShop?.url
-        {
-            guard let url = NSURL(string: sUrl) else { return }
-            UIApplication.sharedApplication().openURL(url)
-        }
+        guard let sURL = coffeeShop?.url else { return }
+        guard let url = NSURL(string: sURL) else { return }
+        UIApplication.sharedApplication().openURL(url)
     }
     
     func openPhoneURL()
     {
-        if let phone = coffeeShop?.phoneBasic
-        {
-            guard let url = NSURL(string: "tel:+1\(phone)") else { return }
-            UIApplication.sharedApplication().openURL(url)
-        }
+        guard let phone = coffeeShop?.phoneBasic else { return }
+        guard let url = NSURL(string: "tel:+1\(phone)") else { return }
+        UIApplication.sharedApplication().openURL(url)
     }
     
     func openMapURL()
@@ -127,6 +135,8 @@ class ShopDetailsController: UITableViewController {
             else { return }
         UIApplication.sharedApplication().openURL(url)
     }
+    
+    //MARK: - Location Helpers
     
     func centerMapOnLocation(coord: CLLocationCoordinate2D)
     {

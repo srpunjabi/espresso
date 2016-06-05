@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let prefs = NSUserDefaults.standardUserDefaults()
+        guard let _ = prefs.stringForKey("userNavatar")  else
+        {
+            prefs.setValue(NavatarType.DarthVader.rawValue, forKey: "userNavatar")
+            return true
+        }
         return true
     }
 

@@ -405,6 +405,7 @@
 			baseConfigurationReference = 792C9284502D7300153D254C /* Pods-Espresso.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sumit Punjabi (26A9SUJAMK)";
 				INFOPLIST_FILE = Espresso/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wakeupsumo.Espresso;
@@ -417,6 +418,7 @@
 			baseConfigurationReference = 0645E4CECFE06F4CE46B3F4F /* Pods-Espresso.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sumit Punjabi (26A9SUJAMK)";
 				INFOPLIST_FILE = Espresso/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wakeupsumo.Espresso;

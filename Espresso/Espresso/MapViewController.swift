@@ -30,6 +30,7 @@ class MapViewController: UIViewController
     }
     
     //MARK: Setup
+    
     func setupRx()
     {
         nearbyViewModel = NearbyViewModel()
@@ -56,11 +57,15 @@ class MapViewController: UIViewController
         if CLLocationManager.locationServicesEnabled()
         {
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager.requestLocation()
+            if #available(iOS 9.0, *)
+            {
+                locationManager.requestLocation()
+            }
         }
     }
     
     //MARK: IBActions
+    
     @IBAction func showMyLocation(sender: UIButton)
     {
         if(CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse && CLLocationManager.locationServicesEnabled())
@@ -84,7 +89,22 @@ class MapViewController: UIViewController
         }
     }
     
+    @IBAction func unwindFromNavatar(segue:UIStoryboardSegue)
+    {
+        if let location = nearbyViewModel.locationVariable.value
+        {
+            removeCurrentUserAnnotation()
+            addCurrentUserAnnotation(location)
+        }
+    }
+    
+    @IBAction func chooseNavatar(sender: UIBarButtonItem)
+    {
+        performSegueWithIdentifier("MapToNavatar", sender: self)
+    }
+    
     //MARK: Segue Logic
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if let _ = segue.identifier where segue.identifier == "MapToDetailsSegue"
@@ -95,6 +115,7 @@ class MapViewController: UIViewController
             detailsController.coffeeShop = coffeeShopDict[id]
         }
     }
+    
     //MARK: - Private Helpers
     
     //shows pin on the map with annotation
@@ -125,6 +146,7 @@ extension MapViewController:CLLocationManagerDelegate
         {
             nearbyViewModel.locationVariable.value = latestLocation
             centerMapOnLocation(latestLocation)
+            removeCurrentUserAnnotation()
             addCurrentUserAnnotation(latestLocation)
         }
     }
@@ -137,7 +159,6 @@ extension MapViewController:CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation)
     {
         removeCurrentUserAnnotation()
-        addCurrentUserAnnotation(newLocation)
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus)
@@ -154,8 +175,12 @@ extension MapViewController:CLLocationManagerDelegate
     func addCurrentUserAnnotation(location:CLLocation)
     {
         let userAnnotation = CoffeeShopAnnotation(title: "Me", coordinate: location.coordinate, type:.User, id: "user")
-        userAnnotation.imageName = "darthVader.png"
-        mapView.addAnnotation(userAnnotation)
+        let prefs = NSUserDefaults.standardUserDefaults()
+        if let imageName = prefs.stringForKey("userNavatar")
+        {
+            userAnnotation.imageName = imageName
+            mapView.addAnnotation(userAnnotation)
+        }
     }
     
     //removes any old user annotations when user's current location updates
@@ -164,8 +189,8 @@ extension MapViewController:CLLocationManagerDelegate
         let annotationToRemove = mapView.annotations.filter
             {
                 let annotation = $0 as? CoffeeShopAnnotation
-                return (annotation?.annotationType == .User) ?? false
-        }
+                return (annotation?.annotationType == .User)
+            }
         mapView.removeAnnotations(annotationToRemove)
     }
 }
@@ -182,6 +207,7 @@ extension MapViewController: MKMapViewDelegate
             {
                 view = dequedView
                 view.annotation = annotation
+                view.canShowCallout = (annotation.annotationType == .CoffeeShop)
             }
             else
             {
@@ -207,31 +233,3 @@ extension MapViewController: MKMapViewDelegate
             }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

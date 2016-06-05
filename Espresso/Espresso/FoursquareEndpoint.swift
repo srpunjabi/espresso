@@ -23,13 +23,11 @@ class FoursquareEndpoint
     {
         guard let path = NSBundle.mainBundle().pathForResource("FoursquareKeys", ofType: "plist") else
         {
-            print("failed path")
             return
         }
         
         guard let dict = NSDictionary(contentsOfFile: path) else
         {
-            print("dict not found")
             return
         }
         

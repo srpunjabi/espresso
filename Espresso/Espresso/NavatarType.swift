@@ -7,3 +7,11 @@
 //
 
 import Foundation
+enum NavatarType:String
+{
+    case DarthVader = "darthVader.png"
+    case Batman = "batman.png"
+    case Ninja = "ninja.png"
+    case Hipster = "hipster.png"
+    case Knight = "knight.png"
+}

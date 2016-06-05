@@ -18,7 +18,7 @@ class CoffeeShop:Mappable
     var country:String?
     var latitude:Double?
     var longitude:Double?
-    var distance:Int?
+    var distance:Double?
     var phone:String?
     var phoneBasic:String?
     var url:String?
