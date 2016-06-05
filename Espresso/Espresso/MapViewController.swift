@@ -153,7 +153,10 @@ extension MapViewController:CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
     {
-        
+        let alertController = UIAlertController(title: "Location Failed", message:
+            "Unable to get location", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation)

@@ -34,13 +34,9 @@ class NavatarTableViewController: UITableViewController
     {
         performSegueWithIdentifier("UnwindFromNavatar", sender: self)
     }
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     //MARK: - TableView Delegates
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         let prefs = NSUserDefaults.standardUserDefaults()
@@ -83,5 +79,4 @@ class NavatarTableViewController: UITableViewController
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.accessoryType = .None
     }
-
 }
