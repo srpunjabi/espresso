@@ -7,19 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6985097B35460958BED0E6DA /* Pods_Espresso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207B75ACEBBE443A972519E3 /* Pods_Espresso.framework */; };
+		EF02B0A91D020C8C00CC419F /* CoffeeShopAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02B0A81D020C8C00CC419F /* CoffeeShopAnnotation.swift */; };
+		EF25153E1CFB8D7F006E893F /* NearbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25153D1CFB8D7F006E893F /* NearbyViewModel.swift */; };
+		EF2515401CFB9A8D006E893F /* FoursquareEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25153F1CFB9A8D006E893F /* FoursquareEndpoint.swift */; };
+		EF32F73B1D04026800F29AE6 /* NavatarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF32F73A1D04026800F29AE6 /* NavatarTableViewController.swift */; };
+		EF32F73D1D04050600F29AE6 /* NavatarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF32F73C1D04050600F29AE6 /* NavatarType.swift */; };
+		EF415F591D03625A0012E278 /* ShopDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF415F581D03625A0012E278 /* ShopDetailsController.swift */; };
+		EF692E041CFF76C800DA6672 /* FoursquareKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF692E031CFF76C800DA6672 /* FoursquareKeys.plist */; };
+		EF9FFBEC1D024C78007A4054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9FFBEB1D024C78007A4054 /* Assets.xcassets */; };
+		EFAB37041CFE265C006FD5CA /* CoffeeShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB37031CFE265C006FD5CA /* CoffeeShop.swift */; };
 		EFE1A7E11CF8E43A00A3777A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE1A7E01CF8E43A00A3777A /* AppDelegate.swift */; };
 		EFE1A7E31CF8E43A00A3777A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE1A7E21CF8E43A00A3777A /* MapViewController.swift */; };
 		EFE1A7E61CF8E43A00A3777A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE1A7E41CF8E43A00A3777A /* Main.storyboard */; };
-		EFE1A7E81CF8E43A00A3777A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE1A7E71CF8E43A00A3777A /* Assets.xcassets */; };
 		EFE1A7EB1CF8E43A00A3777A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE1A7E91CF8E43A00A3777A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0645E4CECFE06F4CE46B3F4F /* Pods-Espresso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Espresso.release.xcconfig"; path = "Pods/Target Support Files/Pods-Espresso/Pods-Espresso.release.xcconfig"; sourceTree = "<group>"; };
+		207B75ACEBBE443A972519E3 /* Pods_Espresso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Espresso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		792C9284502D7300153D254C /* Pods-Espresso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Espresso.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Espresso/Pods-Espresso.debug.xcconfig"; sourceTree = "<group>"; };
+		EF02B0A81D020C8C00CC419F /* CoffeeShopAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopAnnotation.swift; sourceTree = "<group>"; };
+		EF25153D1CFB8D7F006E893F /* NearbyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyViewModel.swift; sourceTree = "<group>"; };
+		EF25153F1CFB9A8D006E893F /* FoursquareEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareEndpoint.swift; sourceTree = "<group>"; };
+		EF32F73A1D04026800F29AE6 /* NavatarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavatarTableViewController.swift; sourceTree = "<group>"; };
+		EF32F73C1D04050600F29AE6 /* NavatarType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavatarType.swift; sourceTree = "<group>"; };
+		EF415F581D03625A0012E278 /* ShopDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailsController.swift; sourceTree = "<group>"; };
+		EF692E031CFF76C800DA6672 /* FoursquareKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FoursquareKeys.plist; sourceTree = "<group>"; };
+		EF9FFBEB1D024C78007A4054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFAB37031CFE265C006FD5CA /* CoffeeShop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShop.swift; sourceTree = "<group>"; };
 		EFE1A7DD1CF8E43A00A3777A /* Espresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Espresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE1A7E01CF8E43A00A3777A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE1A7E21CF8E43A00A3777A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EFE1A7E51CF8E43A00A3777A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EFE1A7E71CF8E43A00A3777A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFE1A7EA1CF8E43A00A3777A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EFE1A7EC1CF8E43A00A3777A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -29,17 +49,91 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6985097B35460958BED0E6DA /* Pods_Espresso.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0833520721A7114BCD9DBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				792C9284502D7300153D254C /* Pods-Espresso.debug.xcconfig */,
+				0645E4CECFE06F4CE46B3F4F /* Pods-Espresso.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC06A172004D3A350F556EA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				207B75ACEBBE443A972519E3 /* Pods_Espresso.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF02B0A71D020C7000CC419F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EF2515381CFB8929006E893F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EF415F581D03625A0012E278 /* ShopDetailsController.swift */,
+				EFE1A7E21CF8E43A00A3777A /* MapViewController.swift */,
+				EF32F73A1D04026800F29AE6 /* NavatarTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EF2515391CFB8938006E893F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EF25153D1CFB8D7F006E893F /* NearbyViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		EF25153A1CFB8948006E893F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF02B0A81D020C8C00CC419F /* CoffeeShopAnnotation.swift */,
+				EFAB37031CFE265C006FD5CA /* CoffeeShop.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EF25153B1CFB8953006E893F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EF25153F1CFB9A8D006E893F /* FoursquareEndpoint.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		EF25153C1CFB8970006E893F /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				EFE1A7E91CF8E43A00A3777A /* LaunchScreen.storyboard */,
+				EFE1A7EC1CF8E43A00A3777A /* Info.plist */,
+				EFE1A7E01CF8E43A00A3777A /* AppDelegate.swift */,
+				EF692E031CFF76C800DA6672 /* FoursquareKeys.plist */,
+				EF9FFBEB1D024C78007A4054 /* Assets.xcassets */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
 		EFE1A7D41CF8E43A00A3777A = {
 			isa = PBXGroup;
 			children = (
 				EFE1A7DF1CF8E43A00A3777A /* Espresso */,
 				EFE1A7DE1CF8E43A00A3777A /* Products */,
+				4E0833520721A7114BCD9DBE /* Pods */,
+				EC06A172004D3A350F556EA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +148,14 @@
 		EFE1A7DF1CF8E43A00A3777A /* Espresso */ = {
 			isa = PBXGroup;
 			children = (
-				EFE1A7E01CF8E43A00A3777A /* AppDelegate.swift */,
-				EFE1A7E21CF8E43A00A3777A /* MapViewController.swift */,
+				EF02B0A71D020C7000CC419F /* View */,
+				EF25153B1CFB8953006E893F /* Network */,
+				EF25153A1CFB8948006E893F /* Model */,
+				EF2515391CFB8938006E893F /* ViewModels */,
+				EF2515381CFB8929006E893F /* ViewControllers */,
+				EF25153C1CFB8970006E893F /* Supporting files */,
 				EFE1A7E41CF8E43A00A3777A /* Main.storyboard */,
-				EFE1A7E71CF8E43A00A3777A /* Assets.xcassets */,
-				EFE1A7E91CF8E43A00A3777A /* LaunchScreen.storyboard */,
-				EFE1A7EC1CF8E43A00A3777A /* Info.plist */,
+				EF32F73C1D04050600F29AE6 /* NavatarType.swift */,
 			);
 			path = Espresso;
 			sourceTree = "<group>";
@@ -71,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFE1A7EF1CF8E43A00A3777A /* Build configuration list for PBXNativeTarget "Espresso" */;
 			buildPhases = (
+				569A2ACD8151DE64AFD5C34D /* Check Pods Manifest.lock */,
 				EFE1A7D91CF8E43A00A3777A /* Sources */,
 				EFE1A7DA1CF8E43A00A3777A /* Frameworks */,
 				EFE1A7DB1CF8E43A00A3777A /* Resources */,
+				A1037838ACA177C788CB6667 /* Embed Pods Frameworks */,
+				976D489ECBACA09A3F880E97 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,20 +222,76 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE1A7EB1CF8E43A00A3777A /* LaunchScreen.storyboard in Resources */,
-				EFE1A7E81CF8E43A00A3777A /* Assets.xcassets in Resources */,
 				EFE1A7E61CF8E43A00A3777A /* Main.storyboard in Resources */,
+				EF9FFBEC1D024C78007A4054 /* Assets.xcassets in Resources */,
+				EF692E041CFF76C800DA6672 /* FoursquareKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		569A2ACD8151DE64AFD5C34D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		976D489ECBACA09A3F880E97 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Espresso/Pods-Espresso-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1037838ACA177C788CB6667 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Espresso/Pods-Espresso-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFE1A7D91CF8E43A00A3777A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF32F73D1D04050600F29AE6 /* NavatarType.swift in Sources */,
 				EFE1A7E31CF8E43A00A3777A /* MapViewController.swift in Sources */,
+				EF415F591D03625A0012E278 /* ShopDetailsController.swift in Sources */,
+				EF2515401CFB9A8D006E893F /* FoursquareEndpoint.swift in Sources */,
 				EFE1A7E11CF8E43A00A3777A /* AppDelegate.swift in Sources */,
+				EF25153E1CFB8D7F006E893F /* NearbyViewModel.swift in Sources */,
+				EF02B0A91D020C8C00CC419F /* CoffeeShopAnnotation.swift in Sources */,
+				EF32F73B1D04026800F29AE6 /* NavatarTableViewController.swift in Sources */,
+				EFAB37041CFE265C006FD5CA /* CoffeeShop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -238,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -247,6 +402,7 @@
 		};
 		EFE1A7F01CF8E43A00A3777A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 792C9284502D7300153D254C /* Pods-Espresso.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Espresso/Info.plist;
@@ -258,6 +414,7 @@
 		};
 		EFE1A7F11CF8E43A00A3777A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0645E4CECFE06F4CE46B3F4F /* Pods-Espresso.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Espresso/Info.plist;
@@ -286,6 +443,7 @@
 				EFE1A7F11CF8E43A00A3777A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

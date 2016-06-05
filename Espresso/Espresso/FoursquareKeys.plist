@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   FoursquareKeys.plist
-   Espresso
-
-   Created by Sumit Punjabi on 6/1/16.
-   Copyright (c) 2016 wakeupsumo. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>api_secret</key>
+	<string>TP20PXNQ4S5DKVTOOVNZO4LK0UMKTDMEHB34WUORCJ5BO1ZC</string>
+	<key>api_key</key>
+	<string>X1CC4QRSRD2P1P2FIDJQFLQFKGZTKZ0EYCWL0X0K5DFSNPF0</string>
+</dict>
 </plist>

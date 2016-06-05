@@ -23,8 +23,8 @@ class NearbyViewModel
     
     init(){}
   
-
-    func fetchCoffeeShops() -> Driver<[CoffeeShop]>
+    //This function observers locationVariable and makes networks calls when locationVariable changes
+    private func fetchCoffeeShops() -> Driver<[CoffeeShop]>
     {
         return locationVariable
             .asObservable()

@@ -46,9 +46,8 @@ class FoursquareEndpoint
         {
             observer in
             //GET request to Foursquare search API
-            let request =
-                
-                Alamofire.request(.GET, baseURL, parameters: params, encoding: ParameterEncoding.URL, headers: nil)
+            let request =   Alamofire
+                .request(.GET, baseURL, parameters: params, encoding: ParameterEncoding.URL, headers: nil)
                 .validate()
                 .responseJSON()
                     {
@@ -75,16 +74,13 @@ class FoursquareEndpoint
                         }
                    
                         //mapping json to CoffeeShop objects using ObjectMapper
-                        if let coffeeShops = Mapper<CoffeeShop>().mapArray(responseJSONValue["response"]!["venues"])
+                        if let coffeeShops = Mapper<CoffeeShop>().mapArray(responseJSONValue["response"]?["venues"])
                         {
                             observer.onNext(coffeeShops)
                             observer.onCompleted()
                         }
                     }
-                return AnonymousDisposable
-                    {
-                        request.cancel()
-                    }
+                return AnonymousDisposable{ request.cancel() }
             }
     }
     
