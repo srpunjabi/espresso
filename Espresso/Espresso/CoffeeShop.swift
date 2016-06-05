@@ -16,10 +16,12 @@ class CoffeeShop:Mappable
     var street:String?
     var city:String?
     var country:String?
-    var latitude:String?
-    var longitude:String?
+    var latitude:Double?
+    var longitude:Double?
     var distance:Int?
     var phone:String?
+    var phoneBasic:String?
+    var url:String?
     
     required init?(_ map: Map)
     {
@@ -30,12 +32,14 @@ class CoffeeShop:Mappable
     {
         identifier  <- map["id"]
         name        <- map["name"]
-        street      <- map["location.0"]
-        city        <- map["location.1"]
-        country     <- map["location.2"]
+        street      <- map["location.formattedAddress.0"]
+        city        <- map["location.formattedAddress.1"]
+        country     <- map["location.formattedAddress.2"]
         latitude    <- map["location.lat"]
         longitude   <- map["location.lng"]
         distance    <- map["location.distance"]
-        phone       <- map["contact.phone"]
+        phoneBasic  <- map["contact.phone"]
+        phone       <- map["contact.formattedPhone"]
+        url         <- map["url"]
     }
 }

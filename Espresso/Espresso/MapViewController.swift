@@ -19,7 +19,7 @@ class MapViewController: UIViewController
     let locationManager = CLLocationManager()
     var nearbyViewModel:NearbyViewModel!
     var disposeBag = DisposeBag()
-    var coffeeShops:[CoffeeShop] = [CoffeeShop]()
+    var coffeeShopDict:[String : CoffeeShop] = [String : CoffeeShop]()
     
     override func viewDidLoad()
     {
@@ -27,6 +27,25 @@ class MapViewController: UIViewController
         mapView.bringSubviewToFront(myLocationButton)
         setupRx()
         setupLocation()
+    }
+    
+    //MARK: Setup
+    func setupRx()
+    {
+        nearbyViewModel = NearbyViewModel()
+        nearbyViewModel.coffeeShops.driveNext
+            {
+                [unowned self]
+                shops in
+                for shop in shops
+                {
+                    if(self.coffeeShopDict[shop.identifier] == nil)
+                    {
+                        self.coffeeShopDict[shop.identifier] = shop
+                    }
+                    self.showPin(shop)
+                }
+            }.addDisposableTo(disposeBag)
     }
     
     func setupLocation()
@@ -41,62 +60,61 @@ class MapViewController: UIViewController
         }
     }
     
-    func setupRx()
-    {
-        nearbyViewModel = NearbyViewModel()
-        nearbyViewModel.coffeeShops.driveNext
-                {
-                    [unowned self]
-                    shops in
-                    for shop in shops
-                    {
-                        self.showPin(shop)
-                    }
-                }.addDisposableTo(disposeBag)
-    }
-    
-    //shows pin on the map with annotation
-    func showPin(coffeeShop:CoffeeShop)
-    {
-        guard let lat = coffeeShop.latitude else
-        {
-            return
-        }
-        
-        guard let lng = coffeeShop.longitude else
-        {
-            return
-        }
-        
-        let coord = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-        let annotation = CoffeeShopAnnotation(title: coffeeShop.name, coordinate: coord,type: .CoffeeShop)
-        mapView.addAnnotation(annotation)
-    }
-    
+    //MARK: IBActions
     @IBAction func showMyLocation(sender: UIButton)
     {
         if(CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse && CLLocationManager.locationServicesEnabled())
         {
             nearbyViewModel.locationVariable
-                .asDriver()
-                .filter()
+            .asDriver()
+            .filter()
+                {
+                    (location:CLLocation?) -> Bool in
+                    return ((location?.coordinate.latitude != 0) && (location?.coordinate.longitude != 0))
+                }
+            .driveNext()
+                {
+                    [unowned self]
+                    (location:CLLocation?) in
+                    if let currentLocation = location
                     {
-                        (location:CLLocation?) -> Bool in
-                        return ((location?.coordinate.latitude != 0) && (location?.coordinate.longitude != 0))
+                        self.centerMapOnLocation(currentLocation)
                     }
-                .driveNext()
-                    {
-                            [unowned self]
-                            (location:CLLocation?) in
-                            if let currentLocation = location
-                            {
-                                self.centerMapOnLocation(currentLocation)
-                            }
-                    }.addDisposableTo(disposeBag)
+                }.addDisposableTo(disposeBag)
         }
     }
     
+    //MARK: Segue Logic
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let _ = segue.identifier where segue.identifier == "MapToDetailsSegue"
+        {
+            guard let detailsController = segue.destinationViewController as? ShopDetailsController else { return }
+            
+            guard let id = sender as? String else { return }
+            detailsController.coffeeShop = coffeeShopDict[id]
+        }
+    }
+    //MARK: - Private Helpers
     
+    //shows pin on the map with annotation
+    private func showPin(coffeeShop:CoffeeShop)
+    {
+        guard let lat = coffeeShop.latitude  else { return }
+        guard let lng = coffeeShop.longitude else { return }
+       
+        let coord = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        let annotation = CoffeeShopAnnotation(title: coffeeShop.name, coordinate: coord,type: .CoffeeShop, id: coffeeShop.identifier)
+        mapView.addAnnotation(annotation)
+    }
+    
+    //centers map to given coordinates on screen
+    private func centerMapOnLocation(location: CLLocation)
+    {
+        let regionRadius: CLLocationDistance = 200
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
 }
 
 extension MapViewController:CLLocationManagerDelegate
@@ -130,23 +148,17 @@ extension MapViewController:CLLocationManagerDelegate
         }
     }
     
-    //MARK: - Private Helpers
+    //MARK: - Annotation Helpers
     
-    //centers map to given coordinates on screen
-    func centerMapOnLocation(location: CLLocation)
-    {
-        let regionRadius: CLLocationDistance = 200
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
+    //adds a new annotation for user's current location
     func addCurrentUserAnnotation(location:CLLocation)
     {
-        let userAnnotation = CoffeeShopAnnotation(title: "Me", coordinate: location.coordinate, type:.User)
+        let userAnnotation = CoffeeShopAnnotation(title: "Me", coordinate: location.coordinate, type:.User, id: "user")
         userAnnotation.imageName = "darthVader.png"
         mapView.addAnnotation(userAnnotation)
     }
     
+    //removes any old user annotations when user's current location updates
     func removeCurrentUserAnnotation()
     {
         let annotationToRemove = mapView.annotations.filter
@@ -174,13 +186,25 @@ extension MapViewController: MKMapViewDelegate
             else
             {
                 view = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                view.canShowCallout = true
+                
+                let frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+                let detailsButton = UIButton(frame: frame)
+                detailsButton.setBackgroundImage(UIImage(named: "ic_right.png"), forState: .Normal)
+                view.rightCalloutAccessoryView = detailsButton
+                view.canShowCallout = (annotation.annotationType == .CoffeeShop)
             }
             view.image = UIImage(named: annotation.imageName)
             return view
         }
-        
         return nil
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
+    {
+            if let coffeeAnnotation = view.annotation as? CoffeeShopAnnotation
+            {
+                self.performSegueWithIdentifier("MapToDetailsSegue", sender: coffeeAnnotation.id)
+            }
     }
 }
 
