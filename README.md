@@ -2,6 +2,11 @@
 An iOS app that shows coffee shops near you in playful a way.
 
 ### Screenshots:
+<img src="Screenshots/Home.png?" alt="alt text" width="250" height="444.66">
+<img src="Screenshots/Details.png?" alt="alt text" width="250" height="444.66">
+<img src="Screenshots/ChooseNavatar.png?" alt="alt text" width="250" height="444.66">
+
+
 
 ### Works On:
 iOS 8 and later
