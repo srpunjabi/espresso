@@ -34,7 +34,7 @@ This app follows MVVM to a certain extend along with Functional Reactive Program
 ##### ViewControllers:
 1. **MapViewController:**  Observers NearbyViewModel to get nearby coffe shops and displays them on a mapView with pins.
 2. **ShopDetailsController:**  A static UITableViewController that displays additional info about the CoffeeShop.
-3. **NavatarTableViewController:**  A static UITableViewController that lets the user pick from from different Navatars (current location avatar)
+3. **NavatarTableViewController:**  A static UITableViewController that lets the user pick from from different Navatars (current location avatar).
 
 ##### ViewModels:
 1. **NearbyViewModel:**  Handles data and initiating network request whenever a new location is available.
