@@ -17,7 +17,7 @@ iOS 8 and later
 1. Open the app once installed
 2. Look for an avatar at the center of the screen thats your current location
 3. Move around the map or pinch out to see CoffeeCup pins around you these are coffee shops near you.
-4. Tap on the CoffeeMug pin to reveal more details.
+4. Tap on the CoffeeCup pin to reveal more details.
 5. On the details page you will see more info about the coffee shop.
 
 
