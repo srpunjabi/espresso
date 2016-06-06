@@ -55,18 +55,19 @@ This app follows MVVM to a certain extend along with Functional Reactive Program
 # Contributors:
 
 ### Artwork:
-<img src="Espresso/Espresso/Assets.xcassets/batman.imageset/batman.png?" alt="alt text" width="50" height="50"> Icon made by www.flaticon.com/authors/freepik from www.flaticon.com
+<img src="Espresso/Espresso/Assets.xcassets/batman.imageset/batman.png?" alt="alt text" width="50" height="50"> Icon made by http://www.flaticon.com/authors/tutsplus from www.flaticon.com
 
-<img src="Espresso/Espresso/Assets.xcassets/coffeePin.imageset/coffee (2).png?" alt="alt text" width="50" height="50">Icon made by www.flaticon.com/authors/freepik from www.flaticon.com
+<img src="Espresso/Espresso/Assets.xcassets/coffeePin.imageset/coffee (2).png?" alt="alt text" width="50" height="50"> Icon made by www.flaticon.com/authors/freepik from www.flaticon.com
+
+<img src="Espresso/Espresso/Assets.xcassets/ninja.imageset/ninja-portrait.png" alt="alt text" width="50" height="50"> Icon made by www.flaticon.com/authors/freepik from www.flaticon.com
+
+<img src="Espresso/Espresso/Assets.xcassets/knight.imageset/knight.png?" alt="alt text" width="50" height="50"> Icon made by www.flaticon.com/authors/freepik from www.flaticon.com
+
+<img src="Espresso/Espresso/Assets.xcassets/darthVader.imageset/dVader.png?" alt="alt text" width="50" height="50"> Icon made by https://www.iconfinder.com/milan.kohut from www.flaticon.com
+
+<img src="Espresso/Espresso/Assets.xcassets/hipster.imageset/hipster.png?" alt="alt text" width="50" height="50"> Icon made by http://www.flaticon.com/authors/madebyoliver from www.flaticon.com
 
 
-<img src="Espresso/Espresso/Assets.xcassets/darthVader.imageset/dVader.png?" alt="alt text" width="50" height="50">
-<img src="Espresso/Espresso/Assets.xcassets/hipster.imageset/hipster.png?" alt="alt text" width="50" height="50">
-<img src="Espresso/Espresso/Assets.xcassets/knight.imageset/knight.png?" alt="alt text" width="50" height="50">
-
-<img src="Espresso/Espresso/Assets.xcassets/ninja.imageset/ninja-portrait.png" alt="alt text" width="50" height="50">
-
-Icon made by www.flaticon.com/authors/freepik from www.flaticon.com
 
 
 
