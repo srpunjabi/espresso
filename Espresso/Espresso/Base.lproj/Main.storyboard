@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="959" y="-282"/>
         </scene>
-        <!--Navatar Table View Controller-->
+        <!--Choose Your Navatar-->
         <scene sceneID="6gc-81-3pa">
             <objects>
                 <tableViewController id="o8J-eh-kZh" customClass="NavatarTableViewController" customModule="Espresso" customModuleProvider="target" sceneMemberID="viewController">
@@ -268,7 +268,7 @@
                             <outlet property="delegate" destination="o8J-eh-kZh" id="zVG-Z3-q4D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="zmF-JW-nDv">
+                    <navigationItem key="navigationItem" title="Choose Your Navatar" id="zmF-JW-nDv">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="SQu-sE-NwW">
                             <connections>
                                 <action selector="onDone:" destination="o8J-eh-kZh" id="GWB-ot-TX9"/>
@@ -487,6 +487,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.40784313729999999" green="0.65098039220000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
