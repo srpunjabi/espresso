@@ -67,8 +67,10 @@ This app follows MVVM to a certain extend along with Functional Reactive Program
 
 <img src="Espresso/Espresso/Assets.xcassets/hipster.imageset/hipster.png?" alt="alt text" width="50" height="50"> Icon made by http://www.flaticon.com/authors/madebyoliver from www.flaticon.com
 
-
-
-
-
 ### ThirdParty Libraries:
+1. [Alamofire](https://github.com/Alamofire/Alamofire)
+2. [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+3. [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
+4. [RxSwift](https://github.com/ReactiveX/RxSwift)
+5. [RxCocoa](https://github.com/ReactiveX/RxSwift)
+6. [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
