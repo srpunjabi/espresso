@@ -2,9 +2,11 @@
 An iOS app that shows coffee shops near you in playful a way.
 
 ### Screenshots:
-<img src="Screenshots/Home.png?" alt="alt text" width="250" height="444.66">
-<img src="Screenshots/Details.png?" alt="alt text" width="250" height="444.66">
-<img src="Screenshots/ChooseNavatar.png?" alt="alt text" width="250" height="444.66">
+<img src="Screenshots/Home.png?" alt="alt text" width="187.5" height="333.5">
+<img src="Screenshots/Pin.png?" alt="alt text" width="187.5" height="333.5">
+<img src="Screenshots/Details.png?" alt="alt text" width="187.5" height="333.5">
+<img src="Screenshots/ChooseNavatar.png?" alt="alt text" width="187.5" height="333.5">
+
 
 
 
@@ -74,3 +76,4 @@ This app follows MVVM to a certain extend along with Functional Reactive Program
 4. [RxSwift](https://github.com/ReactiveX/RxSwift)
 5. [RxCocoa](https://github.com/ReactiveX/RxSwift)
 6. [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
+7. [CocoaPods](https://github.com/CocoaPods/CocoaPods)
