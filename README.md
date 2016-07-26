@@ -1,5 +1,5 @@
 # Espresso
-An iOS app that shows coffee shops near you in a playful way.
+An iOS app that uses the FourSquare API to show coffee shops near you in a playful way.
 
 ### Screenshots:
 <img src="Screenshots/Home.png?" alt="alt text" width="187.5" height="333.5">
